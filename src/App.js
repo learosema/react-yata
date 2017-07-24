@@ -29,7 +29,6 @@ class App extends Component {
       todos: (todos.push({id: lastId+1, task: todoDescription, done: false}), todos),
       input: ""
     }))
-    this.todoInput.focus()
   }
 
   editTask = (newTodo) => {
@@ -46,6 +45,7 @@ class App extends Component {
 
   handleFormSubmit = e => { 
     this.addTodo(this.state.input)
+    this.todoInput.focus()
     e.preventDefault()
   }
 
