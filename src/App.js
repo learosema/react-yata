@@ -1,12 +1,38 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import './App.css'
 
+const Wrapper = styled.section`
+  color: white;
+  padding: 4em;
+  background: darkslategrey;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  overflow-x: hidden;
+  overflow-y: auto;
+`
+
+const Button = styled.button`
+  background: ${props => props.danger ? 'crimson' : 'transparent'};
+  color: white;
+  padding: .5rem 0;
+  margin: .5rem; 
+  width: 10rem;
+  border: 2px solid white;
+`
+
+const TodoItem = styled.li``
+const TodoList = styled.ul`
+  list-style: none;
+`
+
 const todoItem = ({id, done, task, handleDeleteTask, handleCheckTask, handleEditMode}) =>
-  <li className="todo-item" key={id}>
-    <button onClick={() => handleDeleteTask(id)}>delete task</button>
+  <TodoItem key={id}>
+    <Button danger onClick={() => handleDeleteTask(id)}>delete task</Button>
     <input type="checkbox" checked={done?"checked" : ""} onClick={() => handleCheckTask(id)}/>
     <label id={task.id} className={done?"done":""}>{task}</label>
-  </li>
+  </TodoItem>
 
 class App extends Component {
 
@@ -52,25 +78,23 @@ class App extends Component {
   render() {
     const { input } = this.state
     return (
-      <div className="app">
-        <div className="app--header">
+      <Wrapper>
           <h1>Yet another TODO app</h1>
           <p>
             <form onSubmit={this.handleFormSubmit}>
               <input ref={input => { this.todoInput = input}} placeholder="enter" onInput={this.updateInput} value={input} required />
-              <button> add TODO </button>
+              <Button> add TODO </Button>
             </form>
           </p>
-        </div>
-        <ul>
+        <TodoList>
           {
             this.state.todos.map(task => todoItem({...task, handleDeleteTask: this.deleteTask, handleCheckTask: this.toggleTask }))
           }
-        </ul>
+        </TodoList>
         <pre>
           {JSON.stringify(this.state, null, 2)}
         </pre>
-      </div>
+      </Wrapper>
     )
   }
 }
