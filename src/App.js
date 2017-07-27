@@ -20,6 +20,10 @@ const Button = styled.button`
   margin: .5rem; 
   width: 10rem;
   border: 2px solid white;
+
+  &:hover {
+    background: ${props => props.danger ? 'salmon' : 'rgba(0,0,0,.2);'}
+  }
 `
 
 const TodoItem = styled.li``
