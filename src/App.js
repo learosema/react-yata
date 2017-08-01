@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import FontAwesome from 'react-fontawesome'
+import 'font-awesome/css/font-awesome.css'
 import './App.css'
 
 const Wrapper = styled.section`
   color: white;
-  padding: 4em;
+  padding: 4em 8em;
+  margin: 0;
   background: darkslategrey;
   width: 100vw;
   height: 100vh;
@@ -26,17 +29,55 @@ const Button = styled.button`
   }
 `
 
-const TodoItem = styled.li``
+const InputBox = styled.input`
+  padding: 8px;
+  width: 50%;
+`
+
 const TodoList = styled.ul`
   list-style: none;
+  padding: 0;
+`
+
+const TodoLabel = styled.label`
+  width: 500px;
+  display: inline;
+  padding: 4px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-decoration: ${props => props.done ? 'line-through' : 'none'}
+`
+
+const TodoCheckbox = styled.input`
+  display: inline-block;  
+`
+
+const TodoListElement = styled.li`
+  display: block;
+  padding: 2em;
+  border-radius: 8px;
+  background: mediumseagreen;
+  margin: 4px 0;
+` 
+
+const DebugView = styled.pre`
+  background: rgba(0,0,0,.5);
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20vh;
+  overflow: auto;
 `
 
 const todoItem = ({id, done, task, handleDeleteTask, handleCheckTask, handleEditMode}) =>
-  <TodoItem key={id}>
-    <Button danger onClick={() => handleDeleteTask(id)}>delete task</Button>
-    <input type="checkbox" checked={done?"checked" : ""} onClick={() => handleCheckTask(id)}/>
-    <label id={task.id} className={done?"done":""}>{task}</label>
-  </TodoItem>
+  <TodoListElement key={id}>
+    <Button danger onClick={() => handleDeleteTask(id)}><FontAwesome name="times" /> delete</Button>
+    <TodoCheckbox type="checkbox" checked={done?"checked" : ""} for={task.id} onChange={() => handleCheckTask(id)}/>
+    <TodoLabel id={task.id} done={done}>{task}</TodoLabel>
+  </TodoListElement>
 
 class App extends Component {
 
@@ -44,7 +85,7 @@ class App extends Component {
     input: "",
     todos: [{
       id: 1,
-      task: "Wash the dishes",
+      task: "Create a simple TODO application",
       editMode: false,
       done: true
     }],
@@ -75,7 +116,6 @@ class App extends Component {
 
   handleFormSubmit = e => { 
     this.addTodo(this.state.input)
-    this.todoInput.focus()
     e.preventDefault()
   }
 
@@ -84,20 +124,21 @@ class App extends Component {
     return (
       <Wrapper>
           <h1>Yet another TODO app</h1>
-          <p>
+          <h3>What do you want to do today?</h3>
+          <div>
             <form onSubmit={this.handleFormSubmit}>
-              <input ref={input => { this.todoInput = input}} placeholder="enter" onInput={this.updateInput} value={input} required />
+              <InputBox placeholder="enter" onInput={this.updateInput} value={input} required />
               <Button> add TODO </Button>
             </form>
-          </p>
+          </div>
         <TodoList>
           {
             this.state.todos.map(task => todoItem({...task, handleDeleteTask: this.deleteTask, handleCheckTask: this.toggleTask }))
           }
         </TodoList>
-        <pre>
+        <DebugView>
           {JSON.stringify(this.state, null, 2)}
-        </pre>
+        </DebugView>
       </Wrapper>
     )
   }
