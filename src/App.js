@@ -20,11 +20,12 @@ const Wrapper = styled.section`
 
 const Button = styled.button`
   background: ${props => props.danger ? 'crimson' : 'transparent'};
-  color: white;
+  color: ${props => props.danger ? 'white' : 'darkblue'};
   padding: .5rem 0;
   margin: .5rem; 
   width: 10rem;
-  border: 2px solid white;
+  border: 2px solid ${props => props.danger ? 'darkred' : 'darkblue'};
+  font-weight: bold;
 
   &:hover {
     background: ${props => props.danger ? 'salmon' : 'rgba(0,0,0,.2);'}
@@ -60,7 +61,7 @@ const TodoCheckbox = styled.input`
 const TodoListElement = styled.li`
   display: block;
   padding: 2em;
-  border-radius: 8px;
+  border-radius: 2px;
   background: papayawhip;
   margin: 4px 0;
   box-shadow: 4px 4px 16px 0 rgba(0,0,0,.4);
