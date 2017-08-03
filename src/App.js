@@ -9,7 +9,7 @@ const Wrapper = styled.section`
   color: darkblue;
   padding: 4em 8em;
   margin: 0;
-  background: chocolate url(${backgroundImage});
+  background: papayawhip url(${backgroundImage});
   background-size: cover;
   width: 100vw;
   height: 100vh;
