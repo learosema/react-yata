@@ -2,13 +2,15 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import FontAwesome from 'react-fontawesome'
 import 'font-awesome/css/font-awesome.css'
-import './App.css'
+import './assets/App.css'
+import backgroundImage from './assets/coffee-background.jpg'
 
 const Wrapper = styled.section`
-  color: white;
+  color: darkblue;
   padding: 4em 8em;
   margin: 0;
-  background: darkslategrey;
+  background: chocolate url(${backgroundImage});
+  background-size: cover;
   width: 100vw;
   height: 100vh;
   display: block;
@@ -40,6 +42,8 @@ const TodoList = styled.ul`
 `
 
 const TodoLabel = styled.label`
+  color: royalblue;
+  font-family: cursive;
   width: 500px;
   display: inline;
   padding: 4px;
@@ -57,14 +61,17 @@ const TodoListElement = styled.li`
   display: block;
   padding: 2em;
   border-radius: 8px;
-  background: mediumseagreen;
+  background: papayawhip;
   margin: 4px 0;
+  box-shadow: 4px 4px 16px 0 rgba(0,0,0,.4);
 ` 
 
 const DebugView = styled.pre`
   background: rgba(0,0,0,.5);
   color: #fff;
   position: absolute;
+  margin: 0;
+  padding: 2em;
   bottom: 0;
   left: 0;
   right: 0;
