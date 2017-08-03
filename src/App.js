@@ -35,6 +35,7 @@ const Button = styled.button`
 const InputBox = styled.input`
   padding: 8px;
   width: 50%;
+  border: 2px solid ${props => props.danger ? 'darkred' : 'darkblue'}
 `
 
 const TodoList = styled.ul`
