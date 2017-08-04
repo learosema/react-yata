@@ -103,7 +103,7 @@ class App extends Component {
 
   updateInput = e => this.setState({input: e.target.value })
   
-  addTodo = (todoDescription) => {
+  addTodo = todoDescription => {
     this.setState(({todos, lastId}) => ({
       lastId: lastId + 1, 
       todos: (todos.push({id: lastId+1, task: todoDescription, done: false}), todos),
@@ -111,15 +111,15 @@ class App extends Component {
     }))
   }
 
-  editTask = (newTodo) => {
+  editTask = newTodo => {
     this.setState(({todos}) => ({todos: todos.map(todo => todo.id === newTodo.id ? {...todo, newTodo} : todo )}))
   }
 
-  toggleTask = (id) => {
+  toggleTask = id => {
     this.setState(({todos}) => ({todos: todos.map(todo => todo.id === id ? {...todo, done: !todo.done} : todo )}))
   }
 
-  deleteTask = (removeId) => {
+  deleteTask = removeId => {
     this.setState(({todos,props}) => ({todos: todos.filter(({id}) => id !== removeId)}))
   }
 
