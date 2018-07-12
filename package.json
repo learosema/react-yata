@@ -13,8 +13,9 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-fontawesome": "^1.6.1",
-    "react-scripts": "1.0.10",
-    "styled-components": "^2.1.1"
+    "react-scripts": "1.1.1",
+    "styled-components": "^2.1.1",
+    "snyk": "^1.88.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -22,9 +23,12 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build -s",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "devDependencies": {
     "gh-pages": "^1.0.0"
-  }
+  },
+  "snyk": true
 }
