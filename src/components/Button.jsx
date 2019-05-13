@@ -10,7 +10,8 @@ const Button = styled.button`
   font-weight: bold;
 
   &:hover {
-    background: ${props => (props.danger ? 'salmon' : 'rgba(255, 255 ,255, .5);')};
+    background: ${props =>
+      props.danger ? 'salmon' : 'rgba(255, 255 ,255, .5);'};
   }
 `;
 

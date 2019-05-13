@@ -9,7 +9,6 @@ const InputBox = styled.input`
   padding: 0.5rem;
   border: 2px solid ${props => (props.danger ? 'darkred' : 'white')};
 
-
   &::placeholder {
     color: #ff77ff;
   }

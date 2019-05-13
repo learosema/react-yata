@@ -10,7 +10,7 @@ import DebugView from './components/DebugView';
 const Page = styled.section`
   color: white;
   padding: 1rem;
-  background: rgb(70,30,80);
+  background: rgb(70, 30, 80);
   background-image: url(${backgroundImage});
   background-blend-mode: multiply;
   background-size: cover;
@@ -18,8 +18,7 @@ const Page = styled.section`
   width: 100vw;
   min-height: 100vh;
   display: block;
-`
-
+`;
 
 const Wrapper = styled.section`
   max-width: 60rem;
@@ -29,7 +28,6 @@ const Wrapper = styled.section`
     display: flex;
     justify-content: space-between;
 
-
     @media (max-width: 400px) {
       display: block;
       * {
@@ -37,7 +35,8 @@ const Wrapper = styled.section`
       }
     }
 
-    button, input {
+    button,
+    input {
       display: block;
       margin: 1px;
     }
@@ -112,32 +111,32 @@ class App extends Component {
     const { input } = this.state;
     return (
       <Page>
-      <Wrapper>
-        <h1>Yet another TODO app</h1>
-        <h3>What do you want to do today?</h3>
-        
-        <form onSubmit={this.handleFormSubmit}>
-          <div class="input-header">
-            <InputBox
-              placeholder="enter"
-              onChange={this.updateInput}
-              value={input}
-              required
-            />
-            <Button> add TODO </Button>
-          </div>
-        </form>
-        <TodoList>
-          {this.state.todos.map(task =>
-            TodoItem({
-              ...task,
-              handleDeleteTask: this.deleteTask,
-              handleCheckTask: this.toggleTask
-            })
-          )}
-        </TodoList>
-        <DebugView>{JSON.stringify(this.state, null, 2)}</DebugView>
-      </Wrapper>
+        <Wrapper>
+          <h1>Yet another TODO app</h1>
+          <h3>What do you want to do today?</h3>
+
+          <form onSubmit={this.handleFormSubmit}>
+            <div class="input-header">
+              <InputBox
+                placeholder="enter"
+                onChange={this.updateInput}
+                value={input}
+                required
+              />
+              <Button> add TODO </Button>
+            </div>
+          </form>
+          <TodoList>
+            {this.state.todos.map(task =>
+              TodoItem({
+                ...task,
+                handleDeleteTask: this.deleteTask,
+                handleCheckTask: this.toggleTask
+              })
+            )}
+          </TodoList>
+          <DebugView>{JSON.stringify(this.state, null, 2)}</DebugView>
+        </Wrapper>
       </Page>
     );
   }
