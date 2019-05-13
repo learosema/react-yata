@@ -93,7 +93,7 @@ const todoItem = ({
     <TodoCheckbox
       type="checkbox"
       checked={done ? 'checked' : ''}
-      for={task.id}
+      htmlFor={task.id}
       onChange={() => handleCheckTask(id)}
     />
     <TodoLabel id={task.id} done={done}>
@@ -168,7 +168,7 @@ class App extends Component {
           <form onSubmit={this.handleFormSubmit}>
             <InputBox
               placeholder="enter"
-              onInput={this.updateInput}
+              onChange={this.updateInput}
               value={input}
               required
             />
