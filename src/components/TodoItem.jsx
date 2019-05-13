@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from './Button';
 
-
 const TodoListElement = styled.li`
   display: block;
   padding: 2em;
