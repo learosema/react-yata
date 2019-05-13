@@ -1,5 +1,4 @@
-Because the best way to learn coding in React is to actually do some stuff, even if it's yet another todo app. 
+This project was created by me to learn styled components, 2 years ago. Now I am going to extend it using Redux.
 
-Hands on coding!
 
-https://terabaud.github.io/react-yata/
+The project is deployed as a GitHub Page to: https://terabaud.github.io/react-yata/

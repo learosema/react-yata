@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import './assets/App.css';
 import backgroundImage from './assets/coffee-background.jpg';
+import Button from './components/Button';
+import InputBox from './components/InputBox';
+import TodoList from './components/TodoList';
+import TodoItem from './components/TodoItem';
+import DebugView from './components/DebugView';
 
 const Wrapper = styled.section`
   color: darkblue;
@@ -15,92 +20,6 @@ const Wrapper = styled.section`
   overflow-x: hidden;
   overflow-y: auto;
 `;
-
-const Button = styled.button`
-  background: ${props => (props.danger ? 'crimson' : 'transparent')};
-  color: ${props => (props.danger ? 'white' : 'darkblue')};
-  padding: 0.5rem 0;
-  margin: 0.5rem;
-  width: 10rem;
-  border: 2px solid ${props => (props.danger ? 'darkred' : 'darkblue')};
-  font-weight: bold;
-
-  &:hover {
-    background: ${props => (props.danger ? 'salmon' : 'rgba(0,0,0,.2);')};
-  }
-`;
-
-const InputBox = styled.input`
-  padding: 8px;
-  width: 50%;
-  border: 2px solid ${props => (props.danger ? 'darkred' : 'darkblue')};
-`;
-
-const TodoList = styled.ul`
-  list-style: none;
-  padding: 0;
-`;
-
-const TodoLabel = styled.label`
-  color: royalblue;
-  font-family: cursive;
-  display: inline;
-  padding: 4px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  text-decoration: ${props => (props.done ? 'line-through' : 'none')};
-`;
-
-const TodoCheckbox = styled.input`
-  display: inline-block;
-`;
-
-const TodoListElement = styled.li`
-  display: block;
-  padding: 2em;
-  border-radius: 2px;
-  background: papayawhip;
-  margin: 4px 0;
-  box-shadow: 4px 4px 16px 0 rgba(0, 0, 0, 0.4);
-`;
-
-const DebugView = styled.pre`
-  background: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  position: absolute;
-  margin: 0;
-  padding: 2em;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 20vh;
-  overflow: auto;
-`;
-
-const todoItem = ({
-  id,
-  done,
-  task,
-  handleDeleteTask,
-  handleCheckTask,
-  handleEditMode
-}) => (
-  <TodoListElement key={id}>
-    <Button danger onClick={() => handleDeleteTask(id)}>
-      <b>×</b> delete
-    </Button>
-    <TodoCheckbox
-      type="checkbox"
-      checked={done ? 'checked' : ''}
-      htmlFor={task.id}
-      onChange={() => handleCheckTask(id)}
-    />
-    <TodoLabel id={task.id} done={done}>
-      {task}
-    </TodoLabel>
-  </TodoListElement>
-);
 
 class App extends Component {
   state = {
@@ -177,7 +96,7 @@ class App extends Component {
         </div>
         <TodoList>
           {this.state.todos.map(task =>
-            todoItem({
+            TodoItem({
               ...task,
               handleDeleteTask: this.deleteTask,
               handleCheckTask: this.toggleTask
