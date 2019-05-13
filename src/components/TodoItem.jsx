@@ -4,16 +4,16 @@ import Button from './Button';
 
 const TodoListElement = styled.li`
   display: block;
-  padding: 2em;
-  border-radius: 2px;
-  background: papayawhip;
-  margin: 4px 0;
+  padding: 1rem;
+  background: transparent;
+  border: 2px solid #fff;
+  margin: 1px;
   box-shadow: 4px 4px 16px 0 rgba(0, 0, 0, 0.4);
 `;
 
 const TodoLabel = styled.label`
-  color: royalblue;
-  font-family: cursive;
+  color: white;
+  font-family: sans-serif;
   display: inline;
   padding: 4px;
   overflow: hidden;
@@ -24,6 +24,7 @@ const TodoLabel = styled.label`
 
 const TodoCheckbox = styled.input`
   display: inline-block;
+  font-size: 2rem;
 `;
 
 const TodoItem = ({

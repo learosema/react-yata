@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const DebugView = styled.pre`
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
-  position: absolute;
+  position: fixed;
   margin: 0;
   padding: 2em;
   bottom: 0;

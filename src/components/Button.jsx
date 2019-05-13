@@ -3,15 +3,14 @@ import styled from 'styled-components';
 
 const Button = styled.button`
   background: ${props => (props.danger ? 'crimson' : 'transparent')};
-  color: ${props => (props.danger ? 'white' : 'darkblue')};
-  padding: 0.5rem 0;
-  margin: 0.5rem;
-  width: 10rem;
-  border: 2px solid ${props => (props.danger ? 'darkred' : 'darkblue')};
+  color: ${props => (props.danger ? 'white' : 'white')};
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 2px solid ${props => (props.danger ? 'darkred' : 'white')};
   font-weight: bold;
 
   &:hover {
-    background: ${props => (props.danger ? 'salmon' : 'rgba(0,0,0,.2);')};
+    background: ${props => (props.danger ? 'salmon' : 'rgba(255, 255 ,255, .5);')};
   }
 `;
 

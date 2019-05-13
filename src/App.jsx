@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import './assets/App.css';
 import backgroundImage from './assets/coffee-background.jpg';
 import Button from './components/Button';
 import InputBox from './components/InputBox';
@@ -8,17 +7,49 @@ import TodoList from './components/TodoList';
 import TodoItem from './components/TodoItem';
 import DebugView from './components/DebugView';
 
-const Wrapper = styled.section`
-  color: darkblue;
-  padding: 4em 8em;
-  margin: 0;
-  background: papayawhip url(${backgroundImage});
+const Page = styled.section`
+  color: white;
+  padding: 1rem;
+  background: rgb(70,30,80);
+  background-image: url(${backgroundImage});
+  background-blend-mode: multiply;
   background-size: cover;
+  background-attachment: fixed;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: block;
-  overflow-x: hidden;
-  overflow-y: auto;
+`
+
+
+const Wrapper = styled.section`
+  max-width: 60rem;
+  margin: 0 auto;
+
+  .input-header {
+    display: flex;
+    justify-content: space-between;
+
+
+    @media (max-width: 400px) {
+      display: block;
+      * {
+        width: 100%;
+      }
+    }
+
+    button, input {
+      display: block;
+      margin: 1px;
+    }
+
+    input {
+      flex-grow: 3;
+    }
+
+    button {
+      flex-grow: 1;
+    }
+  }
 `;
 
 class App extends Component {
@@ -80,11 +111,13 @@ class App extends Component {
   render() {
     const { input } = this.state;
     return (
+      <Page>
       <Wrapper>
         <h1>Yet another TODO app</h1>
         <h3>What do you want to do today?</h3>
-        <div>
-          <form onSubmit={this.handleFormSubmit}>
+        
+        <form onSubmit={this.handleFormSubmit}>
+          <div class="input-header">
             <InputBox
               placeholder="enter"
               onChange={this.updateInput}
@@ -92,8 +125,8 @@ class App extends Component {
               required
             />
             <Button> add TODO </Button>
-          </form>
-        </div>
+          </div>
+        </form>
         <TodoList>
           {this.state.todos.map(task =>
             TodoItem({
@@ -105,6 +138,7 @@ class App extends Component {
         </TodoList>
         <DebugView>{JSON.stringify(this.state, null, 2)}</DebugView>
       </Wrapper>
+      </Page>
     );
   }
 }
