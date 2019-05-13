@@ -88,7 +88,7 @@ const todoItem = ({
 }) => (
   <TodoListElement key={id}>
     <Button danger onClick={() => handleDeleteTask(id)}>
-    <b>×</b> delete
+      <b>×</b> delete
     </Button>
     <TodoCheckbox
       type="checkbox"
