@@ -4,17 +4,10 @@ body {
   font-family: sans-serif;
 }
 
-html {
-  font-family: 'Merriweather Sans', sans-serif;
-}
-
-body {
-  margin: 0
-}
-
 * {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
+
 
 /*# sourceMappingURL=/src.78399e21.css.map */

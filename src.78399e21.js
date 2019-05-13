@@ -29574,14 +29574,224 @@ if ("development" !== 'production' && "development" !== 'test' && typeof window 
 
 var _default = styled;
 exports.default = _default;
-},{"stylis/stylis.min":"../node_modules/stylis/stylis.min.js","stylis-rule-sheet":"../node_modules/stylis-rule-sheet/index.js","react":"../node_modules/react/index.js","@emotion/unitless":"../node_modules/@emotion/unitless/dist/unitless.browser.esm.js","react-is":"../node_modules/react-is/index.js","memoize-one":"../node_modules/memoize-one/dist/memoize-one.esm.js","prop-types":"../node_modules/prop-types/index.js","react-dom":"../node_modules/react-dom/index.js","@emotion/is-prop-valid":"../node_modules/@emotion/is-prop-valid/dist/is-prop-valid.browser.esm.js","process":"../node_modules/process/browser.js"}],"assets/App.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"assets/coffee-background.jpg":[function(require,module,exports) {
+},{"stylis/stylis.min":"../node_modules/stylis/stylis.min.js","stylis-rule-sheet":"../node_modules/stylis-rule-sheet/index.js","react":"../node_modules/react/index.js","@emotion/unitless":"../node_modules/@emotion/unitless/dist/unitless.browser.esm.js","react-is":"../node_modules/react-is/index.js","memoize-one":"../node_modules/memoize-one/dist/memoize-one.esm.js","prop-types":"../node_modules/prop-types/index.js","react-dom":"../node_modules/react-dom/index.js","@emotion/is-prop-valid":"../node_modules/@emotion/is-prop-valid/dist/is-prop-valid.browser.esm.js","process":"../node_modules/process/browser.js"}],"assets/coffee-background.jpg":[function(require,module,exports) {
 module.exports = "/coffee-background.9f7cc2d0.jpg";
-},{}],"App.jsx":[function(require,module,exports) {
+},{}],"components/Button.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  background: ", ";\n  color: ", ";\n  padding: 0.5rem;\n  font-size: 1rem;\n  border: 2px solid ", ";\n  font-weight: bold;\n\n  &:hover {\n    background: ", ";\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var Button = _styledComponents.default.button(_templateObject(), function (props) {
+  return props.danger ? 'crimson' : 'transparent';
+}, function (props) {
+  return props.danger ? 'white' : 'white';
+}, function (props) {
+  return props.danger ? 'darkred' : 'white';
+}, function (props) {
+  return props.danger ? 'salmon' : 'rgba(255, 255 ,255, .5);';
+});
+
+var _default = Button;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js"}],"components/InputBox.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  background: rgba(0, 0, 0, 0.5);\n  color: white;\n  font-family: sans-serif;\n  font-size: 1rem;\n  padding: 0.5rem;\n  border: 2px solid ", ";\n\n  &::placeholder {\n    color: #ff77ff;\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var InputBox = _styledComponents.default.input(_templateObject(), function (props) {
+  return props.danger ? 'darkred' : 'white';
+});
+
+var _default = InputBox;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js"}],"components/TodoList.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  list-style: none;\n  padding: 0;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var TodoList = _styledComponents.default.ul(_templateObject());
+
+var _default = TodoList;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js"}],"components/TodoItem.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _Button = _interopRequireDefault(require("./Button"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n  display: inline-block;\n  font-size: 2rem;\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n  color: white;\n  font-family: sans-serif;\n  display: inline;\n  padding: 4px;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  text-decoration: ", ";\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  display: block;\n  padding: 1rem;\n  background: transparent;\n  border: 2px solid #fff;\n  margin: 1px;\n  box-shadow: 4px 4px 16px 0 rgba(0, 0, 0, 0.4);\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var TodoListElement = _styledComponents.default.li(_templateObject());
+
+var TodoLabel = _styledComponents.default.label(_templateObject2(), function (props) {
+  return props.done ? 'line-through' : 'none';
+});
+
+var TodoCheckbox = _styledComponents.default.input(_templateObject3());
+
+var TodoItem = function TodoItem(_ref) {
+  var id = _ref.id,
+      done = _ref.done,
+      task = _ref.task,
+      handleDeleteTask = _ref.handleDeleteTask,
+      handleCheckTask = _ref.handleCheckTask,
+      handleEditMode = _ref.handleEditMode;
+  return _react.default.createElement(TodoListElement, {
+    key: id
+  }, _react.default.createElement(_Button.default, {
+    danger: true,
+    onClick: function onClick() {
+      return handleDeleteTask(id);
+    }
+  }, _react.default.createElement("b", null, "\xD7"), " delete"), _react.default.createElement(TodoCheckbox, {
+    type: "checkbox",
+    checked: done ? 'checked' : '',
+    htmlFor: task.id,
+    onChange: function onChange() {
+      return handleCheckTask(id);
+    }
+  }), _react.default.createElement(TodoLabel, {
+    id: task.id,
+    done: done
+  }, task));
+};
+
+var _default = TodoItem;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","./Button":"components/Button.jsx"}],"components/DebugView.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  background: rgba(0, 0, 0, 0.5);\n  color: #fff;\n  position: fixed;\n  margin: 0;\n  padding: 2em;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  height: 20vh;\n  overflow: auto;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var DebugView = _styledComponents.default.pre(_templateObject());
+
+var _default = DebugView;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js"}],"App.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29593,9 +29803,17 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
-require("./assets/App.css");
-
 var _coffeeBackground = _interopRequireDefault(require("./assets/coffee-background.jpg"));
+
+var _Button = _interopRequireDefault(require("./components/Button"));
+
+var _InputBox = _interopRequireDefault(require("./components/InputBox"));
+
+var _TodoList = _interopRequireDefault(require("./components/TodoList"));
+
+var _TodoItem = _interopRequireDefault(require("./components/TodoItem"));
+
+var _DebugView = _interopRequireDefault(require("./components/DebugView"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29623,68 +29841,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _templateObject8() {
-  var data = _taggedTemplateLiteral(["\n  background: rgba(0, 0, 0, 0.5);\n  color: #fff;\n  position: absolute;\n  margin: 0;\n  padding: 2em;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  height: 20vh;\n  overflow: auto;\n"]);
-
-  _templateObject8 = function _templateObject8() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject7() {
-  var data = _taggedTemplateLiteral(["\n  display: block;\n  padding: 2em;\n  border-radius: 2px;\n  background: papayawhip;\n  margin: 4px 0;\n  box-shadow: 4px 4px 16px 0 rgba(0, 0, 0, 0.4);\n"]);
-
-  _templateObject7 = function _templateObject7() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject6() {
-  var data = _taggedTemplateLiteral(["\n  display: inline-block;\n"]);
-
-  _templateObject6 = function _templateObject6() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject5() {
-  var data = _taggedTemplateLiteral(["\n  color: royalblue;\n  font-family: cursive;\n  display: inline;\n  padding: 4px;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  text-decoration: ", ";\n"]);
-
-  _templateObject5 = function _templateObject5() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n  list-style: none;\n  padding: 0;\n"]);
-
-  _templateObject4 = function _templateObject4() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  padding: 8px;\n  width: 50%;\n  border: 2px solid ", ";\n"]);
-
-  _templateObject3 = function _templateObject3() {
-    return data;
-  };
-
-  return data;
-}
-
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  background: ", ";\n  color: ", ";\n  padding: 0.5rem 0;\n  margin: 0.5rem;\n  width: 10rem;\n  border: 2px solid ", ";\n  font-weight: bold;\n\n  &:hover {\n    background: ", ";\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  max-width: 60rem;\n  margin: 0 auto;\n\n  .input-header {\n    display: flex;\n    justify-content: space-between;\n\n    @media (max-width: 400px) {\n      display: block;\n      * {\n        width: 100%;\n      }\n    }\n\n    button,\n    input {\n      display: block;\n      margin: 1px;\n    }\n\n    input {\n      flex-grow: 3;\n    }\n\n    button {\n      flex-grow: 1;\n    }\n  }\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -29694,7 +29852,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  color: darkblue;\n  padding: 4em 8em;\n  margin: 0;\n  background: papayawhip url(", ");\n  background-size: cover;\n  width: 100vw;\n  height: 100vh;\n  display: block;\n  overflow-x: hidden;\n  overflow-y: auto;\n"]);
+  var data = _taggedTemplateLiteral(["\n  color: white;\n  padding: 1rem;\n  background: rgb(70, 30, 80);\n  background-image: url(", ");\n  background-blend-mode: multiply;\n  background-size: cover;\n  background-attachment: fixed;\n  width: 100vw;\n  min-height: 100vh;\n  display: block;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -29705,60 +29863,9 @@ function _templateObject() {
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var Wrapper = _styledComponents.default.section(_templateObject(), _coffeeBackground.default);
+var Page = _styledComponents.default.section(_templateObject(), _coffeeBackground.default);
 
-var Button = _styledComponents.default.button(_templateObject2(), function (props) {
-  return props.danger ? 'crimson' : 'transparent';
-}, function (props) {
-  return props.danger ? 'white' : 'darkblue';
-}, function (props) {
-  return props.danger ? 'darkred' : 'darkblue';
-}, function (props) {
-  return props.danger ? 'salmon' : 'rgba(0,0,0,.2);';
-});
-
-var InputBox = _styledComponents.default.input(_templateObject3(), function (props) {
-  return props.danger ? 'darkred' : 'darkblue';
-});
-
-var TodoList = _styledComponents.default.ul(_templateObject4());
-
-var TodoLabel = _styledComponents.default.label(_templateObject5(), function (props) {
-  return props.done ? 'line-through' : 'none';
-});
-
-var TodoCheckbox = _styledComponents.default.input(_templateObject6());
-
-var TodoListElement = _styledComponents.default.li(_templateObject7());
-
-var DebugView = _styledComponents.default.pre(_templateObject8());
-
-var todoItem = function todoItem(_ref) {
-  var id = _ref.id,
-      done = _ref.done,
-      task = _ref.task,
-      handleDeleteTask = _ref.handleDeleteTask,
-      handleCheckTask = _ref.handleCheckTask,
-      handleEditMode = _ref.handleEditMode;
-  return _react.default.createElement(TodoListElement, {
-    key: id
-  }, _react.default.createElement(Button, {
-    danger: true,
-    onClick: function onClick() {
-      return handleDeleteTask(id);
-    }
-  }, _react.default.createElement("b", null, "\xD7"), " delete"), _react.default.createElement(TodoCheckbox, {
-    type: "checkbox",
-    checked: done ? 'checked' : '',
-    for: task.id,
-    onChange: function onChange() {
-      return handleCheckTask(id);
-    }
-  }), _react.default.createElement(TodoLabel, {
-    id: task.id,
-    done: done
-  }, task));
-};
+var Wrapper = _styledComponents.default.section(_templateObject2());
 
 var App =
 /*#__PURE__*/
@@ -29796,9 +29903,9 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "addTodo", function (todoDescription) {
-      _this.setState(function (_ref2) {
-        var todos = _ref2.todos,
-            lastId = _ref2.lastId;
+      _this.setState(function (_ref) {
+        var todos = _ref.todos,
+            lastId = _ref.lastId;
         return {
           lastId: lastId + 1,
           todos: (todos.push({
@@ -29812,8 +29919,8 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "editTask", function (newTodo) {
-      _this.setState(function (_ref3) {
-        var todos = _ref3.todos;
+      _this.setState(function (_ref2) {
+        var todos = _ref2.todos;
         return {
           todos: todos.map(function (todo) {
             return todo.id === newTodo.id ? _objectSpread({}, todo, {
@@ -29825,8 +29932,8 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "toggleTask", function (id) {
-      _this.setState(function (_ref4) {
-        var todos = _ref4.todos;
+      _this.setState(function (_ref3) {
+        var todos = _ref3.todos;
         return {
           todos: todos.map(function (todo) {
             return todo.id === id ? _objectSpread({}, todo, {
@@ -29838,12 +29945,12 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "deleteTask", function (removeId) {
-      _this.setState(function (_ref5) {
-        var todos = _ref5.todos,
-            props = _ref5.props;
+      _this.setState(function (_ref4) {
+        var todos = _ref4.todos,
+            props = _ref4.props;
         return {
-          todos: todos.filter(function (_ref6) {
-            var id = _ref6.id;
+          todos: todos.filter(function (_ref5) {
+            var id = _ref5.id;
             return id !== removeId;
           })
         };
@@ -29865,19 +29972,21 @@ function (_Component) {
       var _this2 = this;
 
       var input = this.state.input;
-      return _react.default.createElement(Wrapper, null, _react.default.createElement("h1", null, "Yet another TODO app"), _react.default.createElement("h3", null, "What do you want to do today?"), _react.default.createElement("div", null, _react.default.createElement("form", {
+      return _react.default.createElement(Page, null, _react.default.createElement(Wrapper, null, _react.default.createElement("h1", null, "Yet another TODO app"), _react.default.createElement("h3", null, "What do you want to do today?"), _react.default.createElement("form", {
         onSubmit: this.handleFormSubmit
-      }, _react.default.createElement(InputBox, {
+      }, _react.default.createElement("div", {
+        class: "input-header"
+      }, _react.default.createElement(_InputBox.default, {
         placeholder: "enter",
-        onInput: this.updateInput,
+        onChange: this.updateInput,
         value: input,
         required: true
-      }), _react.default.createElement(Button, null, " add TODO "))), _react.default.createElement(TodoList, null, this.state.todos.map(function (task) {
-        return todoItem(_objectSpread({}, task, {
+      }), _react.default.createElement(_Button.default, null, " add TODO "))), _react.default.createElement(_TodoList.default, null, this.state.todos.map(function (task) {
+        return (0, _TodoItem.default)(_objectSpread({}, task, {
           handleDeleteTask: _this2.deleteTask,
           handleCheckTask: _this2.toggleTask
         }));
-      })), _react.default.createElement(DebugView, null, JSON.stringify(this.state, null, 2)));
+      })), _react.default.createElement(_DebugView.default, null, JSON.stringify(this.state, null, 2))));
     }
   }]);
 
@@ -29886,7 +29995,7 @@ function (_Component) {
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","./assets/App.css":"assets/App.css","./assets/coffee-background.jpg":"assets/coffee-background.jpg"}],"index.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","./assets/coffee-background.jpg":"assets/coffee-background.jpg","./components/Button":"components/Button.jsx","./components/InputBox":"components/InputBox.jsx","./components/TodoList":"components/TodoList.jsx","./components/TodoItem":"components/TodoItem.jsx","./components/DebugView":"components/DebugView.jsx"}],"index.jsx":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -29899,7 +30008,7 @@ var _App = _interopRequireDefault(require("./App"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom.default.render(_react.default.createElement(_App.default, null), document.getElementById("root"));
+_reactDom.default.render(_react.default.createElement(_App.default, null), document.getElementById('root'));
 },{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./index.css":"index.css","./App":"App.jsx"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -29928,7 +30037,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54950" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59835" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
