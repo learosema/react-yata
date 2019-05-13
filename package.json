@@ -20,7 +20,7 @@
     "build": "parcel build --public-url . src/index.html",
     "test": "jest",
     "predeploy": "npm run build -s",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
