@@ -2,33 +2,38 @@
   "name": "react-test",
   "homepage": "https://terabaud.github.io/react-yata",
   "author": {
-    "name": "Lutz Rosema",
+    "name": "Lea Rosema",
     "email": "terabaud@gmail.com",
     "url": "https://codepen.io/terabaud"
   },
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
-    "font-awesome": "^4.7.0",
-    "react": "^15.6.1",
-    "react-dom": "^16.0.1",
-    "react-fontawesome": "^1.6.1",
-    "react-scripts": "2.0.0",
-    "styled-components": "^2.1.1",
-    "snyk": "^1.88.2"
+    "husky": "^2.2.0",
+    "jest": "^24.8.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "styled-components": "^4.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
+    "start": "parcel src/index.html",
+    "build": "parcel build --public-url . src/index.html",
+    "test": "jest",
     "predeploy": "npm run build -s",
-    "deploy": "gh-pages -d build",
-    "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
-    "gh-pages": "^1.0.0"
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "gh-pages": "^1.0.0",
+    "parcel-bundler": "^1.12.3",
+    "prettier": "^1.17.0",
+    "pretty-quick": "^1.10.0"
   },
-  "snyk": true
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick"
+    }
+  }
 }
