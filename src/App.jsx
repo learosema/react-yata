@@ -5,7 +5,7 @@ import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 import TodoItem from './components/TodoItem';
 // import DebugView from './components/DebugView';
-import { addTodo, deleteTodo, toggleTodo, changeInput } from './actions';
+import { addTodo, deleteTodo, toggleTodo, changeInput } from './redux/actions';
 import { connect } from 'react-redux';
 
 const Page = styled.section`
