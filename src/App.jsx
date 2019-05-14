@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import backgroundImage from './assets/coffee-background.jpg';
-import Button from './components/Button';
-import InputBox from './components/InputBox';
+import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 import TodoItem from './components/TodoItem';
-import DebugView from './components/DebugView';
+// import DebugView from './components/DebugView';
+import { addTodo, deleteTodo, toggleTodo, changeInput } from './actions'
+import { connect } from 'react-redux';
 
 const Page = styled.section`
   color: white;
@@ -52,7 +53,7 @@ const Wrapper = styled.section`
     }
   }
 `;
-
+/* 
 class App extends Component {
   state = {
     input: '',
@@ -116,18 +117,8 @@ class App extends Component {
         <Wrapper>
           <h1>Yet another TODO app</h1>
           <h3>What do you want to do today?</h3>
-
-          <form onSubmit={this.handleFormSubmit}>
-            <div className="input-header">
-              <InputBox
-                placeholder="enter"
-                onChange={this.updateInput}
-                value={input}
-                required
-              />
-              <Button> add TODO </Button>
-            </div>
-          </form>
+          <TodoForm input={input} handleInput={this.updateInput} handleFormSubmit={this.handleFormSubmit}>
+          </TodoForm>
           <TodoList>
             {this.state.todos.map(task =>
               TodoItem({
@@ -145,3 +136,45 @@ class App extends Component {
 }
 
 export default App;
+*/
+
+const mapState = state => ({input: state.input, todos: state.todos});
+const mapDispatch = { addTodo, deleteTodo, toggleTodo, changeInput };
+
+class App extends React.Component {
+
+  handleFormSubmit = e => {
+    this.props.addTodo();
+    e.preventDefault();
+  };
+
+  handleInput = e => {
+    this.props.changeInput(e.target.value);
+  }
+
+  render() {
+    const { input, todos, deleteTodo, toggleTodo } = this.props;
+    return (
+      <Page>
+        <Wrapper>
+          <h1>Yet another TODO app</h1>
+          <h3>What do you want to do today?</h3>
+          <TodoForm input={input} handleInput={this.handleInput} handleFormSubmit={this.handleFormSubmit}>
+          </TodoForm>
+          <TodoList>
+            {todos.map(task =>
+              TodoItem({
+                ...task,
+                handleDeleteTask: deleteTodo,
+                handleCheckTask: toggleTodo
+              })
+            )}
+          </TodoList>
+        </Wrapper>
+      </Page>
+    );
+  }
+
+}
+
+export default connect(mapState, mapDispatch)(App);
