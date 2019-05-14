@@ -23,6 +23,7 @@ export default function reducer(state = initialState, action = { type: null }) {
 
       return {
         ...state,
+        input: '',
         todos: state.todos.concat({
           id,
           task: state.input,
