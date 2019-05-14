@@ -12,6 +12,8 @@ const Page = styled.section`
   padding: 1rem;
   background: rgb(70, 30, 80);
   background-image: url(${backgroundImage});
+  background-position: center;
+  background-repeat: no-repeat;
   background-blend-mode: multiply;
   background-size: cover;
   background-attachment: fixed;
