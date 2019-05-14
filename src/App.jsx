@@ -5,7 +5,7 @@ import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 import TodoItem from './components/TodoItem';
 // import DebugView from './components/DebugView';
-import { addTodo, deleteTodo, toggleTodo, changeInput } from './actions'
+import { addTodo, deleteTodo, toggleTodo, changeInput } from './actions';
 import { connect } from 'react-redux';
 
 const Page = styled.section`
@@ -138,11 +138,10 @@ class App extends Component {
 export default App;
 */
 
-const mapState = state => ({input: state.input, todos: state.todos});
+const mapState = state => ({ input: state.input, todos: state.todos });
 const mapDispatch = { addTodo, deleteTodo, toggleTodo, changeInput };
 
 class App extends React.Component {
-
   handleFormSubmit = e => {
     this.props.addTodo();
     e.preventDefault();
@@ -150,7 +149,7 @@ class App extends React.Component {
 
   handleInput = e => {
     this.props.changeInput(e.target.value);
-  }
+  };
 
   render() {
     const { input, todos, deleteTodo, toggleTodo } = this.props;
@@ -159,8 +158,11 @@ class App extends React.Component {
         <Wrapper>
           <h1>Yet another TODO app</h1>
           <h3>What do you want to do today?</h3>
-          <TodoForm input={input} handleInput={this.handleInput} handleFormSubmit={this.handleFormSubmit}>
-          </TodoForm>
+          <TodoForm
+            input={input}
+            handleInput={this.handleInput}
+            handleFormSubmit={this.handleFormSubmit}
+          />
           <TodoList>
             {todos.map(task =>
               TodoItem({
@@ -174,7 +176,9 @@ class App extends React.Component {
       </Page>
     );
   }
-
 }
 
-export default connect(mapState, mapDispatch)(App);
+export default connect(
+  mapState,
+  mapDispatch
+)(App);

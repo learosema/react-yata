@@ -48,7 +48,7 @@ export default function reducer(state = initialState, action = { type: null }) {
         todos
       };
     },
-    CHANGE_INPUT: ({ value }) => ({...state, input: value})
+    CHANGE_INPUT: ({ value }) => ({ ...state, input: value })
   };
   return (stateChange[action.type] || nop)(action);
 }

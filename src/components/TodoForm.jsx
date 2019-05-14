@@ -2,7 +2,7 @@ import React from 'react';
 import InputBox from './InputBox';
 import Button from './Button';
 
-const TodoForm = ({input, handleFormSubmit, handleInput}) => (
+const TodoForm = ({ input, handleFormSubmit, handleInput }) => (
   <form onSubmit={handleFormSubmit}>
     <div className="input-header">
       <InputBox
@@ -15,4 +15,4 @@ const TodoForm = ({input, handleFormSubmit, handleInput}) => (
     </div>
   </form>
 );
-export default TodoForm
+export default TodoForm;

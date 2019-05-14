@@ -7,17 +7,17 @@ export const addTodo = () => ({
   type: ADD_TODO
 });
 
-export const toggleTodo = (id) => ({
+export const toggleTodo = id => ({
   type: TOGGLE_TODO,
   id
 });
 
-export const deleteTodo = (id) => ({
+export const deleteTodo = id => ({
   type: DELETE_TODO,
   id
 });
 
-export const changeInput = (value) => ({
+export const changeInput = value => ({
   type: CHANGE_INPUT,
   value
 });
