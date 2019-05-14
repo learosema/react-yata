@@ -116,7 +116,7 @@ class App extends Component {
           <h3>What do you want to do today?</h3>
 
           <form onSubmit={this.handleFormSubmit}>
-            <div class="input-header">
+            <div className="input-header">
               <InputBox
                 placeholder="enter"
                 onChange={this.updateInput}
