@@ -1,17 +1,5 @@
 import { ADD_TODO, DELETE_TODO, TOGGLE_TODO } from './actions';
-
-const initialState = {
-  input: '',
-  todos: [
-    {
-      id: 1,
-      task: 'Create a simple TODO application',
-      editMode: false,
-      done: true
-    }
-  ],
-  lastId: 1
-};
+import initialState from './initial-state';
 
 export default function reducer(state = initialState, action = { type: null }) {
   const nop = function() {
