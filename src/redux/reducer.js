@@ -20,7 +20,6 @@ export default function reducer(state = initialState, action = { type: null }) {
   const stateChange = {
     ADD_TODO: () => {
       const id = state.lastId + 1;
-
       return {
         ...state,
         input: '',
