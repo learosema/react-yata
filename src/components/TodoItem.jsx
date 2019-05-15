@@ -17,14 +17,43 @@ const TodoLabel = styled.label`
   display: inline;
   padding: 4px;
   overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   text-decoration: ${props => (props.done ? 'line-through' : 'none')};
 `;
 
 const TodoCheckbox = styled.input`
-  display: inline-block;
-  font-size: 2rem;
+  margin-right: .25rem;
+  appearance: none;
+  outline: none;
+
+  &::after {
+    cursor: pointer;
+    text-align: center;
+    padding: 4px;
+    color: rgba(0,0,0,.0);
+    background: #000;
+    font-size: 1rem;
+    border: 4px solid #fff;
+    font-weight: bold;
+    content: '✓';
+  }
+
+  &:active::after,
+  &:focus::after {
+    outline: 2px solid #f0f;
+  }
+
+  &:hover::after {
+    background: rgba(255,255,255,.2);
+  }
+
+  &:checked::after {
+    background: #3a2;
+    color: #fff;
+  }
+
+  &:checked:hover::after {
+    background: #4b3;
+  }
 `;
 
 const TodoItem = ({
@@ -40,6 +69,7 @@ const TodoItem = ({
       <b>×</b> delete
     </Button>
     <TodoCheckbox
+      title="click to toggle"
       type="checkbox"
       checked={done ? 'checked' : ''}
       htmlFor={task.id}
