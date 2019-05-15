@@ -14,16 +14,6 @@ body {
   justify-content: space-between;
 }
 
-@media (max-width: 400px) {
-  .input-header {
-    display: block;
-  }
-
-  .input-header * {
-    width: 100%;
-  }
-}
-
 .input-header button,
 .input-header input {
   display: block;
@@ -42,6 +32,18 @@ body {
 .input-header button {
   flex-grow: 1;
   border: 4px solid #fff;
+}
+
+@media (max-width: 400px) {
+  .input-header {
+    display: block;
+  }
+
+  .input-header input,
+  .input-header button {
+    width: 100%;
+    margin: 4px 0;
+  }
 }
 
 
