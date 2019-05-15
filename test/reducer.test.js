@@ -1,6 +1,11 @@
 import reducer from '../src/redux/reducer';
 import initialState from '../src/redux/initial-state';
-import { addTodo, deleteTodo, toggleTodo, changeInput } from '../src/redux/actions';
+import {
+  addTodo,
+  deleteTodo,
+  toggleTodo,
+  changeInput
+} from '../src/redux/actions';
 
 describe('reducer tests', () => {
   test('ADD_TODO adds a todo element and resets the input field', () => {
