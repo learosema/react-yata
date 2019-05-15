@@ -21,7 +21,7 @@ const TodoLabel = styled.label`
 `;
 
 const TodoCheckbox = styled.input`
-  margin-right: .25rem;
+  margin-right: 0.25rem;
   appearance: none;
   outline: none;
 
@@ -29,7 +29,7 @@ const TodoCheckbox = styled.input`
     cursor: pointer;
     text-align: center;
     padding: 4px;
-    color: rgba(0,0,0,.0);
+    color: rgba(0, 0, 0, 0);
     background: #000;
     font-size: 1rem;
     border: 4px solid #fff;
@@ -43,7 +43,7 @@ const TodoCheckbox = styled.input`
   }
 
   &:hover::after {
-    background: rgba(255,255,255,.2);
+    background: rgba(255, 255, 255, 0.2);
   }
 
   &:checked::after {

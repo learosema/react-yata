@@ -15,7 +15,8 @@ const Button = styled.button`
       props.danger ? 'salmon' : 'rgba(255, 255 ,255, .5);'};
   }
 
-  &:focus, &:active {
+  &:focus,
+  &:active {
     outline: 2px solid #f0f;
   }
 `;
