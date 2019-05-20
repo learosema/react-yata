@@ -2,10 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from '../src/App';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import reducer from '../src/redux/reducer';
-
-const store = createStore(reducer);
+import store from '../src/redux/store';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
