@@ -10,11 +10,10 @@ import {
 } from '../src/redux/actions';
 
 describe('reducer tests', () => {
-
   test('Undefined action does no changes to the state', () => {
     const state = { ...initialState };
     const result = rootReducer(state);
-    expect(result).toEqual(state)
+    expect(result).toEqual(state);
   });
 
   test('ADD_TODO adds a todo element and resets the input field', () => {
@@ -43,7 +42,7 @@ describe('reducer tests', () => {
       ...initialState,
       todos: [
         { task: 'foo todo', id: 1, done: false },
-        { task: 'bar todo', id: 2, done: false },
+        { task: 'bar todo', id: 2, done: false }
       ]
     };
     const id = state.todos[0].id;
