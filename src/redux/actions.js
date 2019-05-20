@@ -22,7 +22,7 @@ export const deleteTodo = id => ({
 
 export const clearInput = () => ({
   type: CLEAR_INPUT
-})
+});
 
 export const changeInput = value => ({
   type: CHANGE_INPUT,

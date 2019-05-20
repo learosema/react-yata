@@ -5,7 +5,13 @@ import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 import Page from './components/Page';
 
-import { addTodo, changeInput, toggleTodo, deleteTodo, clearInput } from './redux/actions';
+import {
+  addTodo,
+  changeInput,
+  toggleTodo,
+  deleteTodo,
+  clearInput
+} from './redux/actions';
 import { connect } from 'react-redux';
 
 const Wrapper = styled.main`
@@ -48,7 +54,13 @@ class App extends React.Component {
 }
 
 const mapState = state => ({ input: state.input, todos: state.todos });
-const mapDispatch = { addTodo, changeInput, toggleTodo, deleteTodo, clearInput };
+const mapDispatch = {
+  addTodo,
+  changeInput,
+  toggleTodo,
+  deleteTodo,
+  clearInput
+};
 
 export default connect(
   mapState,

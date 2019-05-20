@@ -1,8 +1,7 @@
 const initialState = {
   input: '',
   filter: '',
-  todos: [
-  ]
+  todos: []
 };
 
 export default initialState;

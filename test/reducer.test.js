@@ -53,5 +53,4 @@ describe('reducer tests', () => {
     const result = rootReducer(state, setFilter(value));
     expect(result.filter).toBe(value);
   });
-
 });
