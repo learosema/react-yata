@@ -5,10 +5,18 @@ import {
   deleteTodo,
   toggleTodo,
   changeInput,
+  clearInput,
   setFilter
 } from '../src/redux/actions';
 
 describe('reducer tests', () => {
+
+  test('Undefined action does no changes to the state', () => {
+    const state = { ...initialState };
+    const result = rootReducer(state);
+    expect(result).toEqual(state)
+  });
+
   test('ADD_TODO adds a todo element and resets the input field', () => {
     const state = {
       ...initialState,
@@ -33,11 +41,15 @@ describe('reducer tests', () => {
   test('TOGGLE_TODO toggles a todo element.', () => {
     const state = {
       ...initialState,
-      todos: [{ task: 'test todo', id: 1, done: false }]
+      todos: [
+        { task: 'foo todo', id: 1, done: false },
+        { task: 'bar todo', id: 2, done: false },
+      ]
     };
     const id = state.todos[0].id;
     const result = rootReducer(state, toggleTodo(id));
     expect(result.todos[0].done).toBe(true);
+    expect(result.todos[1].done).toBe(false);
   });
 
   test('CHANGE_INPUT changes the input field.', () => {
@@ -45,6 +57,12 @@ describe('reducer tests', () => {
     const state = { ...initialState, input: '' };
     const result = rootReducer(state, changeInput(value));
     expect(result.input).toBe(value);
+  });
+
+  test('CLEAR_INPUT clears the input field.', () => {
+    const state = { ...initialState, input: 'Lorem Ipsum Dolor Sit amet' };
+    const result = rootReducer(state, clearInput());
+    expect(result.input).toBe('');
   });
 
   test('SET_FILFER changes the input field.', () => {
