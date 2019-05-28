@@ -17,19 +17,17 @@ describe('reducer tests', () => {
   });
 
   test('ADD_TODO adds a todo element and resets the input field', () => {
+    let input = 'foo bar';
     const state = {
-      ...initialState,
-      input: 'Hello World!',
       todos: []
     };
-    const result = rootReducer(state, addTodo(state.input));
+    const result = rootReducer(state, addTodo(input));
     expect(result.todos.length).toBe(1);
-    expect(result.todos[0].task).toBe(state.input);
+    expect(result.todos[0].task).toBe(input);
   });
 
   test('DELETE_TODO deletes a todo element.', () => {
     const state = {
-      ...initialState,
       todos: [{ task: 'test todo', id: 1, done: false }]
     };
     const id = state.todos[0].id;
@@ -49,25 +47,5 @@ describe('reducer tests', () => {
     const result = rootReducer(state, toggleTodo(id));
     expect(result.todos[0].done).toBe(true);
     expect(result.todos[1].done).toBe(false);
-  });
-
-  test('CHANGE_INPUT changes the input field.', () => {
-    const value = 'this is a test input value';
-    const state = { ...initialState, input: '' };
-    const result = rootReducer(state, changeInput(value));
-    expect(result.input).toBe(value);
-  });
-
-  test('CLEAR_INPUT clears the input field.', () => {
-    const state = { ...initialState, input: 'Lorem Ipsum Dolor Sit amet' };
-    const result = rootReducer(state, clearInput());
-    expect(result.input).toBe('');
-  });
-
-  test('SET_FILFER changes the input field.', () => {
-    const value = 'this is a test input value';
-    const state = { ...initialState, filter: '' };
-    const result = rootReducer(state, setFilter(value));
-    expect(result.filter).toBe(value);
   });
 });

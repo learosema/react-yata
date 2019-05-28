@@ -1,6 +1,4 @@
 const initialState = {
-  input: '',
-  filter: '',
   todos: []
 };
 

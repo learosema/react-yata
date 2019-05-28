@@ -2,7 +2,7 @@
 
 module.exports = {
   moduleNameMapper: {
-    '\\.(css|less|sass|scss)$': '<rootDir>/_mocks/import-stub.js',
-    '\\.(jpg|gif|png)$': '<rootDir>/_mocks/import-stub.js'
+    '\\.(css|less|sass|scss)$': '<rootDir>/test/import-stub.js',
+    '\\.(jpg|gif|png)$': '<rootDir>/test/import-stub.js'
   }
 };

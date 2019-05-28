@@ -9,29 +9,37 @@
   "version": "0.2.0",
   "private": true,
   "dependencies": {
-    "husky": "^2.2.0",
+    "concurrently": "^4.1.0",
     "jest": "^24.8.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
+    "react-router-dom": "^5.0.0",
     "redux": "^4.0.1",
     "styled-components": "^4.2.0"
   },
+  "main": "server.js",
   "scripts": {
-    "start": "parcel src/index.html",
+    "server": "cd server && npm start",
+    "client": "parcel src/index.html",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "clean": "rimraf dist .cache",
     "build": "parcel build --public-url . src/index.html",
     "test": "jest",
-    "predeploy": "npm run build -s",
+    "predeploy": "npm run clean -s && npm run build -s",
     "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
     "gh-pages": "^1.0.0",
+    "husky": "^2.3.0",
     "parcel-bundler": "^1.12.3",
     "prettier": "^1.17.0",
-    "pretty-quick": "^1.10.0"
+    "pretty-quick": "^1.10.0",
+    "rimraf": "^2.6.3"
   },
   "husky": {
     "hooks": {
