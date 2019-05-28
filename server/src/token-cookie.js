@@ -17,7 +17,7 @@ async function verifyCookie(req) {
 async function createCookie(res, payload) {
   const jwtSecret = process.env.APPLICATION_SECRET_KEY;
   const userToken = await sign(payload, jwtSecret);
-  res.cookie(COOKIE_NAME, userToken, {httpOnly: true});
+  res.cookie(COOKIE_NAME, userToken, { httpOnly: true });
 }
 
 module.exports = {

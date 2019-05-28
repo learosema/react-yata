@@ -7,11 +7,7 @@ import Page from './components/Page';
 
 import { githubClientId } from './config';
 
-import {
-  addTodo,
-  toggleTodo,
-  deleteTodo,
-} from './redux/actions';
+import { addTodo, toggleTodo, deleteTodo } from './redux/actions';
 import { connect } from 'react-redux';
 
 const Wrapper = styled.main`
@@ -20,26 +16,25 @@ const Wrapper = styled.main`
 `;
 
 class App extends React.Component {
-
   state = {
-    input: localStorage.getItem('todo_input') || ''
-  }
+    input: localStorage.getItem('todo_input') || ''
+  };
 
   saveState = () => {
     localStorage.setItem('todo_input', this.state.input);
-  }
+  };
 
   componentDidMount() {
     window.addEventListener('beforeunload', this.saveState);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('beforeunload', this.saveState)
+    window.removeEventListener('beforeunload', this.saveState);
   }
 
   handleFormSubmit = e => {
     this.props.addTodo(this.state.input);
-    this.setState({input: ''});
+    this.setState({ input: '' });
     e.preventDefault();
   };
 
@@ -54,7 +49,13 @@ class App extends React.Component {
         <Wrapper>
           <h1>Yet another TODO app</h1>
           <h3>What do you want to do today?</h3>
-          <p><a href={`https://github.com/login/oauth/authorize?login&client_id=${githubClientId}`}>Sign in with Github</a></p>
+          <p>
+            <a
+              href={`https://github.com/login/oauth/authorize?login&client_id=${githubClientId}`}
+            >
+              Sign in with Github
+            </a>
+          </p>
           <TodoForm
             input={this.state.input}
             handleInput={this.handleInput}
@@ -75,7 +76,7 @@ const mapState = state => ({ input: state.input, todos: state.todos });
 const mapDispatch = {
   addTodo,
   toggleTodo,
-  deleteTodo,
+  deleteTodo
 };
 
 export default connect(

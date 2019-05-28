@@ -12,7 +12,7 @@ function addTodo(username, task, done) {
     id: guid(),
     task,
     done
-  }
+  };
   todos.push(todo);
   return todo;
 }
@@ -30,4 +30,4 @@ module.exports = {
   getTodos,
   addTodo,
   deleteTodo
-}
+};
