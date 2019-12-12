@@ -16,7 +16,8 @@
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
     "redux": "^4.0.1",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.2.0",
+    "snyk": "^1.258.2"
   },
   "main": "server.js",
   "scripts": {
@@ -27,7 +28,9 @@
     "build": "parcel build --public-url . src/index.html",
     "test": "jest",
     "predeploy": "npm run clean -s && npm run build -s",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
@@ -45,5 +48,6 @@
     "hooks": {
       "pre-commit": "pretty-quick"
     }
-  }
+  },
+  "snyk": true
 }
